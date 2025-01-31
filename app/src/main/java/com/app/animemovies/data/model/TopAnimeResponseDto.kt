@@ -9,9 +9,9 @@ object TopAnimeResponseDto {
     )
 
     data class Data(
-        @SerializedName("title_english") var title: String? = null,
+        @SerializedName("title") var title: String? = "",
         @SerializedName("episodes") var episodes: Int? = 0,
-        @SerializedName("rating") var rating: String? = null,
+        @SerializedName("rating") var rating: String? = "",
         @SerializedName("images") var images: Images? = null,
         @SerializedName("mal_id") var malId: Int? = 0
     )

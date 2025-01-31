@@ -9,11 +9,11 @@ object AnimeDetailsResponseDto {
     )
 
     data class Data(
-        @SerializedName("title_english") var title: String? = null,
+        @SerializedName("title") var title: String? = "",
         @SerializedName("episodes") var episodes: Int? = 0,
-        @SerializedName("rating") var rating: String? = null,
+        @SerializedName("rating") var rating: String? = "",
         @SerializedName("images") var images: Images? = null,
-        @SerializedName("synopsis") var synopsis: String? = null,
+        @SerializedName("synopsis") var synopsis: String? = "",
         @SerializedName("trailer") var trailer: Trailer? = null,
         @SerializedName("mal_id") var mal_Id: Int? = 0
     )
