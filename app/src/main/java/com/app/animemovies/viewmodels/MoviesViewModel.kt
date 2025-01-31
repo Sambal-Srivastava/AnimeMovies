@@ -4,7 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.app.animemovies.data.model.MockResponseDto
+import com.app.animemovies.data.model.AnimeDetailsResponseDto
+import com.app.animemovies.data.model.TopAnimeResponseDto
 import com.app.animemovies.data.repository.MyRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,13 +19,13 @@ class MoviesViewModel @Inject constructor(
     private val myRepository: MyRepository
 ) : ViewModel() {
 
-    private val _movies = MutableStateFlow<MockResponseDto.MockResponse?>(null)
-    val movies: StateFlow<MockResponseDto.MockResponse?> = _movies
+    private val _movies = MutableStateFlow<TopAnimeResponseDto.MockResponse?>(null)
+    val movies: StateFlow<TopAnimeResponseDto.MockResponse?> = _movies
 
-    /*private val _movieDetails = MutableStateFlow<MockResponseDto.MockResponse?>(null)
-    val movieDetails: StateFlow<MockResponseDto.MovieDetailsResponse?> = _movieDetails.asStateFlow()
-*/
-    private val _isLoading = MutableLiveData<Boolean>()  // Loading state
+    private val _movieDetails = MutableLiveData<AnimeDetailsResponseDto.MockResponse?>()
+    val movieDetails: LiveData<AnimeDetailsResponseDto.MockResponse?> = _movieDetails
+
+    private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
     fun fetchMovies() {
@@ -40,11 +41,11 @@ class MoviesViewModel @Inject constructor(
         }
     }
 
-    fun fetchMovieDetails(movieId: String, apiKey:String) {
+    fun fetchMovieDetails(movieId: Int) {
         viewModelScope.launch {
             _isLoading.value = true  // Show progress bar
             try {
-//                _movieDetails.value = myRepository.getMovieDetails(movieId, apiKey)
+                _movieDetails.value = myRepository.getMovieDetails(movieId)
             } catch (e: Exception) {
                 e.printStackTrace()
             } finally {

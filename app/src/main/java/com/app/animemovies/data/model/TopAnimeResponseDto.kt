@@ -2,7 +2,7 @@ package com.app.animemovies.data.model
 
 import com.google.gson.annotations.SerializedName
 
-object MockResponseDto {
+object TopAnimeResponseDto {
 
     data class MockResponse(
         @SerializedName("data") var data: List<Data>? = null
@@ -17,10 +17,11 @@ object MockResponseDto {
     )
 
     data class Images(
-        @SerializedName("jpg") var title: Jpg? = null
+        @SerializedName("jpg") var jpg: Jpg? = null
     )
 
     data class Jpg(
-        @SerializedName("image_url") var imageUrl: String? = null
+        @SerializedName("image_url") var imageUrl: String? = null,
+        @SerializedName("large_image_url") var largeImageUrl: String? = null
     )
 }

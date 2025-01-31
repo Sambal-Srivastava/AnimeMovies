@@ -5,5 +5,5 @@ sealed class Screens {
     data object MovieListing: Screens()
 
     @kotlinx.serialization.Serializable
-    data class MovieDetails(val id: String): Screens()
+    data class MovieDetails(val id: Int): Screens()
 }

@@ -10,15 +10,14 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.app.animemovies.data.model.MockResponseDto
 
 @Composable
 fun Navigation(
     modifier: Modifier = Modifier
 ) {
     val navController = rememberNavController()
-    var imdbId: String? by remember {
-        mutableStateOf(null)
+    var imdbId: Int? by remember {
+        mutableStateOf(0)
     }
 
     NavHost(

@@ -94,6 +94,8 @@ dependencies {
     //image adding library for compose
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
+    //youtube iframe
+    implementation ("com.pierfrancescosoffritti.androidyoutubeplayer:core:12.1.1")
 }
 
 // Allow references to generated code
